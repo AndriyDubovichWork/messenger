@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-import './App.scss';
+import style from './App.module.scss';
 import { Drawer } from '@mui/material';
+import Sidebar from '../layout/Sidebar/Sidebar';
+import Chat from '../layout/Chat/Chat';
 
 function App() {
   return (
-    <h1>
-       <Drawer
-      anchor={'left'}
-      open={true}
-    >
-      123
-    </Drawer>
-    </h1>
+    <div className={style.App}>
+      <Sidebar />
+      <Chat />
+    </div>
   );
 }
 

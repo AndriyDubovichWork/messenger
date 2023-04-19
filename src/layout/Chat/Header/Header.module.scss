@@ -1,0 +1,14 @@
+.Header{
+    width: 100%;
+    height: 10vh;
+    display:flex;
+    flex-direction: row;
+    .UserPic{
+        height: 5vh;
+        width: 5vh;
+        border-radius: 50%;
+    }
+    .UserName{
+
+    }
+}
