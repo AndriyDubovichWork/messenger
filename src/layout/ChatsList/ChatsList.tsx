@@ -1,9 +1,9 @@
 import React from 'react';
 import Chats from './Chats/Chats';
 import Header from './Header/Header';
-import style from './Sidebar.module.scss';
+import style from './ChatsList.module.scss';
 
-const Sidebar = () => {
+const ChatsList = () => {
   return (
     <div className={style.Sidebar}>
       <Header />
@@ -12,4 +12,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default ChatsList;

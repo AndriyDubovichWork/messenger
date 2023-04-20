@@ -7,14 +7,18 @@ const userPlaceholder = require('./assets/userPlaceholder.jpg');
 const Header = () => {
   return (
     <div className={style.Header}>
-      <img
-        src={userPlaceholder}
-        alt='userPlaceholder'
-        className={style.UserPic}
-      />
-      <h1 className={style.UserName}>user name</h1>
-      <SearchIcon />
-      <MoreVertIcon />
+      <div className={style.Left}>
+        <img
+          src={userPlaceholder}
+          alt='userPlaceholder'
+          className={style.UserPic}
+        />
+        <h1 className={style.UserName}>user name</h1>
+      </div>
+      <div className={style.Right}>
+        <SearchIcon />
+        <MoreVertIcon />
+      </div>
     </div>
   );
 };
