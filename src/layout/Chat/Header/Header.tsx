@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Header.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-const userPlaceholder = require('./assets/userPlaceholder.jpg');
+const userPlaceholder = require('../../../assets/userPlaceholder.jpg');
 
 const Header = () => {
   return (

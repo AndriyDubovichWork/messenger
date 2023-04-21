@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ChatElement from './ChatElement/ChatElement';
 
 const Chats = () => {
   return (
-    <div>Chats</div>
-  )
-}
+    <div>
+      <ChatElement />
+    </div>
+  );
+};
 
-export default Chats
+export default Chats;
