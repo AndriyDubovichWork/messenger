@@ -1,7 +1,7 @@
-import React from 'react';
-import Header from './Header/Header';
-import style from './Chat.module.scss';
-import Main from './Main/Main';
+import React from "react";
+import Header from "./Header/Header";
+import style from "./Chat.module.scss";
+import Main from "./Main/Main";
 
 const Chat = () => {
   return (

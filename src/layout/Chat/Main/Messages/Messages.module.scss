@@ -1,4 +1,16 @@
-.Messages{
-    width: 100%;
-    height: 100%;
+.Messages {
+  width: 40vw;
+  height: 80vh;
+
+  .Message {
+    display: inline-flex;
+
+    border-radius: 20px;
+
+    padding: 5px 10px;
+
+    background-color: rgb(146, 136, 211);
+
+    font-size: 1rem;
+  }
 }

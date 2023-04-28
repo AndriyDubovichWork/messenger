@@ -1,5 +1,34 @@
-.ChatImage{
-    height: 5vh;
-    width: 5vh;
-    border-radius: 50%;
+
+
+.ChatElement{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+
+    .ChatImage{
+        height:  4vw;
+        width: 4vw;
+        border-radius: 50%;
+
+        grid-area: 1 / 1 / 3 / 2;
+
+
+    }
+    .ChatName{
+        grid-area: 1 / 2 / 2 / 4;
+    }
+    .HadSeen{
+        display: flex;
+        flex-direction: row;
+        grid-area: 1 / 4 / 2 / 5; 
+    }
+    .LastMessage{
+        grid-area: 2 / 2 / 3 / 4;
+    }
+    .Pin{
+        grid-area: 2 / 4 / 3 / 5;
+    }
 }

@@ -1,15 +1,20 @@
-.Input{
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translate(-50%);
+.Input {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
 
-    width: 40vw;
-    height: 5vh;
+  width: 40vw;
+  height: 5vh;
 
+  font-size: 1.5rem;
 
-    font-size: 1.5rem;
+  padding: 1vh 2vh;
 
+  background-color: rgb(33, 33, 33);
 
-    padding: 1vh 2vh;
+  border: 1px solid #ffffffa9;
+}
+.Input:hover {
+  border-color: #fff;
 }
