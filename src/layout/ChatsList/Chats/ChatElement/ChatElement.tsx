@@ -4,7 +4,7 @@ import PushPinIcon from "@mui/icons-material/PushPin";
 import CheckIcon from "@mui/icons-material/Check";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { ChatT } from "../../../../redux/slices/rawData/rawData";
-import { useAppDispatch } from "../../../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { setSelectedChatID } from "../../../../redux/slices/ChtatsSlice";
 const userPlaceholder = require("../../../../assets/userPlaceholder.jpg");
 
@@ -18,12 +18,20 @@ const ChatElement = ({
   id,
 }: ChatElementPropsT) => {
   const dispatch = useAppDispatch();
+  const SelecdedId = useAppSelector((state) => state.Chats.selectedChatID);
+
+  const lastMessage = useAppSelector((state) => {
+    const CurrentId = state.Chats.chats[id].messages.length - 1;
+    return state.Chats.chats[id].messages[CurrentId].text;
+  });
 
   const isDone = true;
 
   return (
     <div
-      className={style.ChatElement}
+      className={`${SelecdedId === id ? style.ChatElementSelected : ""} ${
+        style.ChatElement
+      }`}
       onClick={() => {
         dispatch(setSelectedChatID(id));
       }}
@@ -38,7 +46,7 @@ const ChatElement = ({
         {isDone ? <DoneAllIcon /> : <CheckIcon />}
         <h6>Wed</h6>
       </div>
-      <h6 className={style.LastMessage}>last message</h6>
+      <h6 className={style.LastMessage}>{lastMessage}</h6>
       <PushPinIcon className={style.Pin} />
     </div>
   );

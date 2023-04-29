@@ -2,6 +2,7 @@ export type MessageT = {
   text: string;
   seen: boolean;
   sendTime: string;
+  sender: string;
 };
 
 export type ChatT = {
@@ -10,7 +11,7 @@ export type ChatT = {
 };
 export type ChatsT = ChatT[];
 
-const rawData = {
+const rawData: { chats: ChatsT } = {
   chats: [
     {
       userName: "Andriy",
@@ -19,6 +20,7 @@ const rawData = {
           text: "hello",
           seen: true,
           sendTime: "19:00",
+          sender: "user1",
         },
       ],
     },
@@ -29,6 +31,7 @@ const rawData = {
           text: "hi",
           seen: true,
           sendTime: "19:00",
+          sender: "user1",
         },
       ],
     },

@@ -7,7 +7,7 @@ const Chats = () => {
   return (
     <div>
       {chatsList.map((Chat, id) => {
-        return <ChatElement ChatData={Chat} id={id} />;
+        return <ChatElement ChatData={Chat} id={id} key={Chat.userName + id} />;
       })}
     </div>
   );

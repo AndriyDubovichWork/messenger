@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import rawData, { ChatsT } from "./rawData/rawData";
+import rawData, { ChatsT, MessageT } from "./rawData/rawData";
 
 type ChtatsState = {
   chats: ChatsT;
   selectedChatID: number;
+  userID: string;
 };
 
 const initialState: ChtatsState = {
   chats: rawData.chats,
   selectedChatID: 0,
+  userID: "deffaultUserID",
 };
 
 const ChtatsSlice = createSlice({
@@ -16,7 +18,17 @@ const ChtatsSlice = createSlice({
   initialState,
   reducers: {
     sendMessage(state, action) {
-      state.chats[state.selectedChatID].messages.push(action.payload);
+      let currDate = new Date();
+
+      let hoursMin = currDate.getHours() + ":" + currDate.getMinutes();
+
+      const message: MessageT = {
+        text: action.payload,
+        seen: false,
+        sendTime: hoursMin,
+        sender: state.userID,
+      };
+      state.chats[state.selectedChatID].messages.push(message);
     },
     setSelectedChatID(state, action) {
       state.selectedChatID = action.payload;
