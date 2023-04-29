@@ -7,6 +7,7 @@ export type MessageT = {
 
 export type ChatT = {
   userName: string;
+  userImage: string;
   messages: MessageT[];
 };
 export type ChatsT = ChatT[];
@@ -15,6 +16,7 @@ const rawData: { chats: ChatsT } = {
   chats: [
     {
       userName: "Andriy",
+      userImage: require("./user1.jpg"),
       messages: [
         {
           text: "hello",
@@ -26,6 +28,7 @@ const rawData: { chats: ChatsT } = {
     },
     {
       userName: "Ivan",
+      userImage: require("./user2.jpg"),
       messages: [
         {
           text: "hi",

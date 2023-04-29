@@ -20,11 +20,13 @@ const ChatElement = ({
   const dispatch = useAppDispatch();
   const SelecdedId = useAppSelector((state) => state.Chats.selectedChatID);
 
-  const lastMessage = useAppSelector((state) => {
+  const { text: lastMessage } = useAppSelector((state) => {
     const CurrentId = state.Chats.chats[id].messages.length - 1;
-    return state.Chats.chats[id].messages[CurrentId].text;
+    return state.Chats.chats[id].messages[CurrentId];
   });
-
+  const currentUserImage = useAppSelector(
+    (state) => state.Chats.chats[id].userImage
+  );
   const isDone = true;
 
   return (
@@ -37,14 +39,14 @@ const ChatElement = ({
       }}
     >
       <img
-        src={userPlaceholder}
+        src={currentUserImage || userPlaceholder}
         alt="user Placeholder"
         className={style.ChatImage}
       />
       <h5 className={style.ChatName}>{userName}</h5>
       <div className={style.HadSeen}>
         {isDone ? <DoneAllIcon /> : <CheckIcon />}
-        <h6>Wed</h6>
+        <h6>{}</h6>
       </div>
       <h6 className={style.LastMessage}>{lastMessage}</h6>
       <PushPinIcon className={style.Pin} />

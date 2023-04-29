@@ -15,10 +15,14 @@ const Messages = () => {
             }`}
             key={message.text + id}
           >
-            <h4 className={style.Message}>{message.text}</h4>
+            <h4 className={style.Message}>
+              <h4 className={style.Text}>{message.text}</h4>
+              <h6 className={style.Date}>{message.sendTime}</h6>
+            </h4>
           </div>
         );
       })}
+      <div id="RequiredForAutoScroll" />
     </div>
   );
 };
