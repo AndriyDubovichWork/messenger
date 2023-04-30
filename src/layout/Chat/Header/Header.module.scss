@@ -1,12 +1,12 @@
 .Header {
   width: 100%;
-  // height: 10vh;
 
   display: flex;
   flex-direction: row;
 
   background-color: rgb(33, 33, 33);
 
+  position: relative;
   .UserPic {
     height: 4vw;
     width: 4vw;
@@ -15,12 +15,38 @@
   .UserName {
     font-size: 1.5rem;
     font-weight: 800;
-    vertical-align: sub;
+
+    margin-left: 1vw;
+
+    display: flex;
+    align-items: center;
   }
   .Left,
   .Right {
     width: 50%;
     display: flex;
     flex-direction: row;
+  }
+  .Right {
+    justify-content: flex-end;
+    align-items: center;
+
+    .Search {
+      border-radius: 5px;
+
+      height: 2vh;
+      width: 10vw;
+
+      font-size: 1rem;
+
+      padding: 1vh;
+
+      background-color: rgb(33, 33, 33);
+
+      border: 1px solid #ffffffa9;
+    }
+    .Search :hover {
+      border-color: #fff;
+    }
   }
 }

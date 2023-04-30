@@ -1,10 +1,10 @@
-import React from "react";
-import style from "./Message.module.scss";
-import { useAppDispatch, useAppSelector } from "../../../../../redux/hooks";
-import { MessageT } from "../../../../../redux/slices/rawData/rawData";
-import { DeleteMessages } from "../../../../../redux/slices/ChtatsSlice";
-import CheckIcon from "@mui/icons-material/Check";
-import DoneAllIcon from "@mui/icons-material/DoneAll";
+import React from 'react';
+import style from './Message.module.scss';
+import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
+import { MessageT } from '../../../../../redux/slices/rawData/rawData';
+import { DeleteMessages } from '../../../../../redux/slices/ChtatsSlice';
+import CheckIcon from '@mui/icons-material/Check';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 type MessagePropsT = {
   message: MessageT;
@@ -17,7 +17,7 @@ const Message = ({ message }: MessagePropsT) => {
   return (
     <div
       className={`${style.MessageContainer} ${
-        userID === message.sender ? style.SendMessageContainer : ""
+        userID === message.sender ? style.SendMessageContainer : ''
       }`}
       onClick={() => {
         if (userID === message.sender) {
@@ -25,13 +25,13 @@ const Message = ({ message }: MessagePropsT) => {
         }
       }}
     >
-      <div className={style.Message}>
+      <div className={style.Message} id={message.MessageID}>
         <h4 className={style.Text}>{message.text}</h4>
         <h6 className={style.Date}>{message.sendTime}</h6>
         {message.seen ? (
-          <DoneAllIcon sx={{ fontSize: "1vw" }} />
+          <DoneAllIcon sx={{ fontSize: '1vw' }} />
         ) : (
-          <CheckIcon sx={{ fontSize: "1vw" }} />
+          <CheckIcon sx={{ fontSize: '1vw' }} />
         )}
       </div>
     </div>

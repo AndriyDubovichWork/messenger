@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import style from "./ChatInput.module.scss";
-import { useDispatch } from "react-redux";
-import { sendMessage } from "../../../../redux/slices/ChtatsSlice";
-import { useAppSelector } from "../../../../redux/hooks";
+import React, { useState, useEffect } from 'react';
+import style from './ChatInput.module.scss';
+import { useDispatch } from 'react-redux';
+import { sendMessage } from '../../../../redux/slices/ChtatsSlice';
+import { useAppSelector } from '../../../../redux/hooks';
 
 const ChatInput = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const dispatch = useDispatch();
 
   const AutoScroll = () => {
-    const bottomElement = document.getElementById("RequiredForAutoScroll");
-    bottomElement?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const bottomElement = document.getElementById('RequiredForAutoScroll');
+    bottomElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   const selectedID = useAppSelector((state) => state.Chats.selectedChatID);
@@ -25,14 +25,15 @@ const ChatInput = () => {
 
   return (
     <input
+      autoFocus={true}
       className={style.ChatInput}
-      placeholder="Message"
+      placeholder='Message'
       value={text}
       onChange={(e) => setText(e.target.value)}
       onKeyDown={(e) => {
-        if (e.key === "Enter" && text) {
+        if (e.key === 'Enter' && !!text && !!text.replace(/\s/g, '').length) {
           dispatch(sendMessage(text));
-          setText("");
+          setText('');
         }
       }}
     />
