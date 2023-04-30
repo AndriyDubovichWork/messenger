@@ -28,6 +28,9 @@
   }
   .LastMessage {
     grid-area: 2 / 2 / 3 / 4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .Pin {
     grid-area: 2 / 4 / 3 / 5;

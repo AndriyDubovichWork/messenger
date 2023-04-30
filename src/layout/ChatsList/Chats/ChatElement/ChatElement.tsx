@@ -20,7 +20,7 @@ const ChatElement = ({
   const dispatch = useAppDispatch();
   const SelecdedId = useAppSelector((state) => state.Chats.selectedChatID);
 
-  const { text: lastMessage } = useAppSelector((state) => {
+  const { text: lastMessage, sendTime } = useAppSelector((state) => {
     const CurrentId = state.Chats.chats[id].messages.length - 1;
     return state.Chats.chats[id].messages[CurrentId];
   });
@@ -46,10 +46,9 @@ const ChatElement = ({
       <h5 className={style.ChatName}>{userName}</h5>
       <div className={style.HadSeen}>
         {isDone ? <DoneAllIcon /> : <CheckIcon />}
-        <h6>{}</h6>
+        <h6>{sendTime}</h6>
       </div>
       <h6 className={style.LastMessage}>{lastMessage}</h6>
-      <PushPinIcon className={style.Pin} />
     </div>
   );
 };

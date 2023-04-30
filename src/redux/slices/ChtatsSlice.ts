@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import rawData, { ChatsT, MessageT } from "./rawData/rawData";
+import uniqid from "uniqid";
 
 type ChtatsState = {
   chats: ChatsT;
@@ -27,14 +28,25 @@ const ChtatsSlice = createSlice({
         seen: false,
         sendTime: hoursMin,
         sender: state.userID,
+        MessageID: uniqid(),
       };
       state.chats[state.selectedChatID].messages.push(message);
     },
+
+    DeleteMessages(state, action) {
+      state.chats[state.selectedChatID].messages = state.chats[
+        state.selectedChatID
+      ].messages.filter((message) => {
+        return message.MessageID !== action.payload;
+      });
+    },
+
     setSelectedChatID(state, action) {
       state.selectedChatID = action.payload;
     },
   },
 });
 
-export const { sendMessage, setSelectedChatID } = ChtatsSlice.actions;
+export const { sendMessage, DeleteMessages, setSelectedChatID } =
+  ChtatsSlice.actions;
 export default ChtatsSlice.reducer;

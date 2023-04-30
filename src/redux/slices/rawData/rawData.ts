@@ -3,6 +3,7 @@ export type MessageT = {
   seen: boolean;
   sendTime: string;
   sender: string;
+  MessageID: string;
 };
 
 export type ChatT = {
@@ -23,6 +24,7 @@ const rawData: { chats: ChatsT } = {
           seen: true,
           sendTime: "19:00",
           sender: "user1",
+          MessageID: "randomID1",
         },
       ],
     },
@@ -35,6 +37,7 @@ const rawData: { chats: ChatsT } = {
           seen: true,
           sendTime: "19:00",
           sender: "user1",
+          MessageID: "randomID2",
         },
       ],
     },
