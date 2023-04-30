@@ -16,11 +16,11 @@ export type ChatsT = ChatT[];
 const rawData: { chats: ChatsT } = {
   chats: [
     {
-      userName: 'Girl',
+      userName: 'Jesica',
       userImage: require('./user1.jpg'),
       messages: [
         {
-          text: 'Jesica',
+          text: 'hello',
           seen: true,
           sendTime: '19:00',
           sender: 'user1',
