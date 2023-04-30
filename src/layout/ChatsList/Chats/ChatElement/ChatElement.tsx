@@ -1,12 +1,12 @@
-import React from "react";
-import style from "./ChatElement.module.scss";
-import PushPinIcon from "@mui/icons-material/PushPin";
-import CheckIcon from "@mui/icons-material/Check";
-import DoneAllIcon from "@mui/icons-material/DoneAll";
-import { ChatT } from "../../../../redux/slices/rawData/rawData";
-import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
-import { setSelectedChatID } from "../../../../redux/slices/ChtatsSlice";
-const userPlaceholder = require("../../../../assets/userPlaceholder.jpg");
+import React from 'react';
+import style from './ChatElement.module.scss';
+import PushPinIcon from '@mui/icons-material/PushPin';
+import CheckIcon from '@mui/icons-material/Check';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+import { ChatT } from '../../../../redux/slices/rawData/rawData';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { setSelectedChatID } from '../../../../redux/slices/ChtatsSlice';
+const userPlaceholder = require('../../../../assets/userPlaceholder.jpg');
 
 type ChatElementPropsT = {
   ChatData: ChatT;
@@ -20,18 +20,21 @@ const ChatElement = ({
   const dispatch = useAppDispatch();
   const SelecdedId = useAppSelector((state) => state.Chats.selectedChatID);
 
-  const { text: lastMessage, sendTime } = useAppSelector((state) => {
+  const {
+    text: lastMessage,
+    sendTime,
+    seen,
+  } = useAppSelector((state) => {
     const CurrentId = state.Chats.chats[id].messages.length - 1;
     return state.Chats.chats[id].messages[CurrentId];
   });
   const currentUserImage = useAppSelector(
     (state) => state.Chats.chats[id].userImage
   );
-  const isDone = true;
 
   return (
     <div
-      className={`${SelecdedId === id ? style.ChatElementSelected : ""} ${
+      className={`${SelecdedId === id ? style.ChatElementSelected : ''} ${
         style.ChatElement
       }`}
       onClick={() => {
@@ -40,12 +43,12 @@ const ChatElement = ({
     >
       <img
         src={currentUserImage || userPlaceholder}
-        alt="user Placeholder"
+        alt='user Placeholder'
         className={style.ChatImage}
       />
       <h5 className={style.ChatName}>{userName}</h5>
       <div className={style.HadSeen}>
-        {isDone ? <DoneAllIcon /> : <CheckIcon />}
+        {seen ? <DoneAllIcon /> : <CheckIcon />}
         <h6>{sendTime}</h6>
       </div>
       <h6 className={style.LastMessage}>{lastMessage}</h6>
